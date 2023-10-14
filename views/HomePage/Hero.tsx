@@ -3,37 +3,27 @@ import styled from 'styled-components';
 import Button from 'components/Button';
 import ButtonGroup from 'components/ButtonGroup';
 import Container from 'components/Container';
-import HeroIllustration from 'components/HeroIllustation';
 import OverTitle from 'components/OverTitle';
-import { useNewsletterModalContext } from 'contexts/newsletter-modal.context';
 import { media } from 'utils/media';
 
 export default function Hero() {
-  const { setIsModalOpened } = useNewsletterModalContext();
 
   return (
     <HeroWrapper>
       <Contents>
-        <CustomOverTitle>the coolest, saas product you have ever seen</CustomOverTitle>
-        <Heading>Make your life easier with our SaaS</Heading>
-        <Description>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, tempora qui. Explicabo voluptate iure ipsum molestias
-          repudiandae perspiciatis nostrum praesentium, unde pariatur tempora magni rem. Necessitatibus facilis obcaecati ratione.
-        </Description>
+        <CustomOverTitle>not a big project, but let's find out</CustomOverTitle>
+        <Heading>Rraf Project</Heading>
+        <Description> 
+          Made By Human, lot of feature you can explore, and some hidden feature you can access too.
+         </Description>
         <CustomButtonGroup>
-          <Button onClick={() => setIsModalOpened(true)}>
-            Subscribe to the newsletter <span>&rarr;</span>
-          </Button>
-          <NextLink href="#whitepaper" passHref>
+          <NextLink href="/info" passHref>
             <Button transparent>
-              Features <span>&rarr;</span>
+              Info <span>&rarr;</span>
             </Button>
           </NextLink>
         </CustomButtonGroup>
       </Contents>
-      <ImageContainer>
-        <HeroIllustration />
-      </ImageContainer>
     </HeroWrapper>
   );
 }
@@ -59,7 +49,7 @@ const Contents = styled.div`
 `;
 
 const CustomButtonGroup = styled(ButtonGroup)`
-  margin-top: 4rem;
+  margin-top: 2rem;
 `;
 
 const ImageContainer = styled.div`

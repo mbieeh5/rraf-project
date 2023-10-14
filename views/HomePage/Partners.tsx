@@ -7,26 +7,23 @@ import Container from 'components/Container';
 import { media } from 'utils/media';
 
 const PARTNER_LOGOS = [
-  'logoipsum-logo-1.svg',
-  'logoipsum-logo-2.svg',
-  'logoipsum-logo-3.svg',
-  'logoipsum-logo-4.svg',
-  'logoipsum-logo-5.svg',
-  'logoipsum-logo-6.svg',
-  'logoipsum-logo-7.svg',
+  'google-logo-1.svg',
+  'matane-production-logo-2.svg',
+  'next-js-logo-3.svg',
+
 ];
 
 export default function Partners() {
   return (
     <PartnersWrapper>
-      <Title>official partners with</Title>
+      <Title>special Thanks</Title>
       <Swiper
         modules={[Autoplay]}
         slidesPerView={6}
         spaceBetween={30}
         loop={true}
         autoplay={{ delay: 0, disableOnInteraction: false, pauseOnMouseEnter: false, waitForTransition: false, stopOnLastSlide: false }}
-        speed={3000}
+        speed={3500}
         breakpoints={{
           320: { slidesPerView: 2 },
           768: { slidesPerView: 4 },

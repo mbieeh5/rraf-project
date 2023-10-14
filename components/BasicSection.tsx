@@ -1,4 +1,3 @@
-import NextImage from 'next/image';
 import React, { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 import { media } from 'utils/media';
@@ -16,9 +15,9 @@ export interface BasicSectionProps {
 export default function BasicSection({ imageUrl, title, overTitle, reversed, children }: PropsWithChildren<BasicSectionProps>) {
   return (
     <BasicSectionWrapper reversed={reversed}>
-      <ImageContainer>
+      {/*<ImageContainer>
         <NextImage src={imageUrl} alt={title} layout="fill" objectFit="cover" />
-      </ImageContainer>
+      </ImageContainer>*/}
       <ContentContainer>
         <CustomOverTitle>{overTitle}</CustomOverTitle>
         <Title>{title}</Title>

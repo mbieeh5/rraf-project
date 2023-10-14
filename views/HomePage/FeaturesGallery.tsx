@@ -10,44 +10,30 @@ import { media } from 'utils/media';
 
 const TABS = [
   {
-    title: 'Find relevant media contacts - multiline title',
+    title: 'Find related content & tools',
     description:
-      '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam quidem ipsam ratione dicta quis cupiditate consequuntur laborum ducimus iusto velit.</p>',
-    imageUrl: '/demo-illustration-3.png',
+      '<p>Also this web can be used as tools for math or simple data store, and related contents for.</p>',
     baseColor: '249,82,120',
     secondColor: '221,9,57',
   },
   {
-    title: 'Another amazing feature',
+    title: 'Simple Games',
     description:
-      '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam quidem ipsam ratione dicta quis cupiditate consequuntur laborum ducimus iusto velit.</p>',
-    imageUrl: '/demo-illustration-4.png',
-    baseColor: '57,148,224',
-    secondColor: '99,172,232',
-  },
-  {
-    title: 'And yet... another truly fascinating feature',
-    description:
-      '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam quidem ipsam ratione dicta quis cupiditate consequuntur laborum ducimus iusto velit.</p>',
-    imageUrl: '/demo-illustration-5.png',
+    '<p>You can play some games solo or multiplayer game with someone who play too.</p>',
     baseColor: '88,193,132',
     secondColor: '124,207,158',
+  },
+  {
+    title: 'Another amazing feature',
+    description:
+      '<p>Much Hidden feature you must explore, and some easter egg in this website.</p>',
+    baseColor: '57,148,224',
+    secondColor: '99,172,232',
   },
 ];
 
 export default function FeaturesGallery() {
   const [currentTab, setCurrentTab] = useState(TABS[0]);
-
-  const imagesMarkup = TABS.map((singleTab, idx) => {
-    const isActive = singleTab.title === currentTab.title;
-    const isFirst = idx === 0;
-
-    return (
-      <ImageContainer key={singleTab.title} isActive={isActive}>
-        <NextImage src={singleTab.imageUrl} alt={singleTab.title} layout="fill" objectFit="contain" priority={isFirst} />
-      </ImageContainer>
-    );
-  });
 
   const tabsMarkup = TABS.map((singleTab, idx) => {
     const isActive = singleTab.title === currentTab.title;
@@ -81,7 +67,6 @@ export default function FeaturesGallery() {
       </Content>
       <GalleryWrapper>
         <TabsContainer>{tabsMarkup}</TabsContainer>
-        {imagesMarkup}
       </GalleryWrapper>
     </FeaturesGalleryWrapper>
   );
@@ -92,6 +77,7 @@ const FeaturesGalleryWrapper = styled(Container)`
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  margin-top: 7rem;
 `;
 
 const GalleryWrapper = styled.div`
