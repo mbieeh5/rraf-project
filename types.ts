@@ -16,8 +16,10 @@ export type SingleArticle = {
 
 export type NewsArticle = {
   title: string;
-  url: string;
-  publishedAt: string;
+  thumbnail: string;
+  pubDate: string;
+  link: string;
+  description: string;
 }
 
 export type NonNullableChildren<T> = { [P in keyof T]: Required<NonNullable<T[P]>> };

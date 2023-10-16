@@ -1,20 +1,16 @@
 import axios from 'axios';
 import { NewsArticle } from 'types';
 
-export async function GetAllNews() {
-    return getSingleNews();
+export async function getSingleNews(): Promise<NewsArticle[]> {
+    let berita: NewsArticle[] = [];
+
+    try {
+        const response = await axios.get("https://api-berita-indonesia.vercel.app/tribun/terbaru/");
+        berita = response.data.data.posts;
+    } catch (error) {
+        // Tangani kesalahan (error) di sini, misalnya dengan melemparkannya atau mencetaknya
+        throw error;
+    }
+
+    return berita;
 }
-
-export async function getSingleNews(): Promise<NewsArticle> {
-    const getNews = await axios.get("https://newsapi.org/v2/top-headlines?country=id&apiKey=78c8fd330d7b4842a78f19ee291690b8");
-    const response: NewsArticle = getNews.data;
-    console.log(`Dari Utils: ${response}`);
-    return response
-}
-
-export async function GetThePost() {
-
-}
-
-
-

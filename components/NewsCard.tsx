@@ -1,20 +1,28 @@
+import NextImage from 'next/image';
 import NextLink from 'next/link';
 import styled from 'styled-components';
+import { media } from 'utils/media';
 
 export interface NewsCardProps {
   title: string;
-  url: string;
-  tanggal: string;
+  thumbnail: string;
+  pubDate: string;
+  link: string;
+  description: string;
 }
 
-export default function NewsCard({ title, url, tanggal }: NewsCardProps) {
+export default function NewsCard({ title, thumbnail, pubDate, link, description }: NewsCardProps) {
   return (
-    <NextLink href={url} passHref>
+    <NextLink href={link} passHref>
       <ArticleCardWrapper className="article-card-wrapper">
         <HoverEffectContainer>
           <Content>
+          <ImageContainer>
+            <ImageHolder src={thumbnail} alt={title} />
+          </ImageContainer>
             <Title>{title}</Title>
-            <Descriptions>{tanggal}</Descriptions>
+            <Descriptions>{pubDate}</Descriptions>
+            <Descriptions>{description}</Descriptions>
           </Content>
         </HoverEffectContainer>
       </ArticleCardWrapper>
@@ -22,10 +30,44 @@ export default function NewsCard({ title, url, tanggal }: NewsCardProps) {
   );
 }
 
+const ImageHolder = styled.img`
+  position: flex;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -35px;
+  width: 60%;
+  border-radius: 8px;
+`
+
+const ImageContainer = styled.div`
+  position: relative;
+  height: 16rem;
+  
+  &:before {
+    display: block;
+    content: '';
+    width: 100%;
+    padding: 5%;
+  }
+
+  & > div {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  ${media('<=desktop')} {
+    width: 100%;
+  }
+`;
+
 const ArticleCardWrapper = styled.a`
   display: flex;
   flex-direction: column;
-  height: 45rem;
+  height: 40rem;
   max-width: 35rem;
   overflow: hidden;
   text-decoration: none;
@@ -51,7 +93,7 @@ const Content = styled.div`
   padding: 0 2rem;
 
   & > * {
-    margin-top: 2rem;
+    margin-top: 1rem;
   }
 `;
 
