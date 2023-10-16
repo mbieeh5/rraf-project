@@ -3,12 +3,12 @@ import Head from 'next/head';
 import styled from 'styled-components';
 import BasicSection from 'components/BasicSection';
 import { EnvVars } from 'env';
-import { getAllPosts } from 'utils/postsFetcher';
 import Features from 'views/HomePage/Features';
 import FeaturesGallery from 'views/HomePage/FeaturesGallery';
 import Hero from 'views/HomePage/Hero';
 import Partners from 'views/HomePage/Partners';
 import ScrollableBlogPosts from 'views/HomePage/ScrollableBlogPosts';
+import { getSingleNews } from 'utils/newsFetcher';
 
 export default function Homepage({ posts }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
@@ -74,7 +74,7 @@ const WhiteBackgroundContainer = styled.div`
 export async function getStaticProps() {
   return {
     props: {
-      posts: await getAllPosts(),
+      posts: await getSingleNews(),
     },
   };
 }

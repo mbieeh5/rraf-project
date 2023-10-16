@@ -2,16 +2,15 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import ArticleCard from 'components/ArticleCard';
 import Container from 'components/Container';
 import OverTitle from 'components/OverTitle';
-import SectionTitle from 'components/SectionTitle';
 import { useResizeObserver } from 'hooks/useResizeObserver';
-import { SingleArticle } from 'types';
+import { NewsArticle } from 'types';
 import { media } from 'utils/media';
+import NewsCard from 'components/NewsCard';
 
 interface ScrollableBlogPostsProps {
-  posts: SingleArticle[];
+  posts: NewsArticle[];
 }
 
 export default function ScrollableBlogPosts({ posts }: ScrollableBlogPostsProps) {
@@ -29,20 +28,21 @@ export default function ScrollableBlogPosts({ posts }: ScrollableBlogPostsProps)
     <Section>
       <Container>
         <Content>
-          <OverTitle>Related Contents</OverTitle>
+          <OverTitle>Berita Terkini</OverTitle>
         </Content>
       </Container>
 
       <SwiperContainer ref={ref}>
         {hasMounted && (
           <Swiper modules={[A11y]} slidesPerView={noOfItems} spaceBetween={10} loop>
-            {posts.map((singlePost, idx) => (
-              <SwiperSlide key={singlePost.meta.title}>
-                <ArticleCard
-                  title={singlePost.meta.title}
-                  description={singlePost.meta.description}
-                  imageUrl={singlePost.meta.imageUrl}
-                  slug={singlePost.slug}
+            {posts.map((singlePost, i) => (
+              <SwiperSlide key={i}>
+                <NewsCard
+                  link={singlePost.link}
+                  title={singlePost.title}
+                  description={singlePost.description}
+                  thumbnail={singlePost.thumbnail}
+                  pubDate={""}
                 />
               </SwiperSlide>
             ))}

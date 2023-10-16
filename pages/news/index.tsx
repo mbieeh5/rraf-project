@@ -11,19 +11,29 @@ export default function News() {
 
     const [ getBerita, SetGetBerita ] = useState<NewsArticle[]>([]);
 
-    useEffect(() =>{
-    axios.get("https://newsapi.org/v2/top-headlines?country=id&apiKey=78c8fd330d7b4842a78f19ee291690b8").then((resp) => {
-        const berita = resp.data.articles;
+    useEffect(() =>{  
+    axios.get("https://api-berita-indonesia.vercel.app/tribun/terbaru/").then((resp) => {
+        const berita = resp.data.data.posts;
         console.log(berita);
-        SetGetBerita(berita);
+        SetGetBerita(berita)
     }).catch((error) => {
         console.log(error);
     })
     }, [])
 
+    const formatDate = (pubDate: string) => {
+      const date = new Date(pubDate);
+      const day = date.getDate();
+      const month = date.getMonth() + 1;
+      const year = date.getFullYear();
+      const hours = date.getHours();
+      const minutes = date.getMinutes();
+      return `${hours}:${minutes} ${day}-${month}-${year}.`;
+  
+    }
 
   return (
-<Page
+  <Page
       title="Bertia Terkini"
       description="Cek Update Berita Terkini dari beberapa Platfrom"
     >
@@ -32,8 +42,10 @@ export default function News() {
           <NewsCard
             key={i}
             title={news.title}
-            tanggal={news.publishedAt}
-            url={news.url}
+            thumbnail={news.thumbnail}
+            pubDate={formatDate(news.pubDate)}
+            link={news.link}
+            description={news.description}
           />
         ))}
       </CustomAutofitGrid>
