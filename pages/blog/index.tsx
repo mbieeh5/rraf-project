@@ -1,7 +1,7 @@
 import { InferGetStaticPropsType } from 'next';
 import styled from 'styled-components';
-import ArticleCard from 'components/ArticleCard';
 import AutofitGrid from 'components/AutofitGrid';
+import NewsCard from 'components/NewsCard';
 import Page from 'components/Page';
 import { media } from 'utils/media';
 import { getAllPosts } from 'utils/postsFetcher';
@@ -9,17 +9,18 @@ import { getAllPosts } from 'utils/postsFetcher';
 export default function BlogIndexPage({ posts }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <Page
-      title="My SaaS Startup Blog"
-      description="Culpa duis reprehenderit in ex amet cillum nulla do in enim commodo. Sunt ut excepteur et est aliqua anim ea excepteur fugiat voluptate. Fugiat exercitation dolore laboris do quis consectetur eiusmod tempor consequat."
+      title="Blog & Forum Section"
+      description=""
     >
       <CustomAutofitGrid>
-        {posts.map((singlePost, idx) => (
-          <ArticleCard
-            key={singlePost.slug}
-            title={singlePost.meta.title}
-            description={singlePost.meta.description}
-            imageUrl={singlePost.meta.imageUrl}
-            slug={singlePost.slug}
+        {posts.map((blog, i) => (
+          <NewsCard
+            key={i}
+            title={blog.title}
+            thumbnail={blog.thumbnail}
+            link={blog.link}
+            pubDate={blog.pubDate}
+            description={blog.description}
           />
         ))}
       </CustomAutofitGrid>

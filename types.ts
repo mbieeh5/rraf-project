@@ -14,6 +14,13 @@ export type SingleArticle = {
   };
 };
 
+export type KategoryItems = ButtonKategory[];
+
+export type ButtonKategory = {
+  title: string;
+  category: string;
+};
+
 export type NewsArticle = {
   title: string;
   thumbnail: string;
