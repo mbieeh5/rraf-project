@@ -1,13 +1,13 @@
+import { InferGetStaticPropsType } from "next";
+import { useState } from 'react';
 import styled from 'styled-components';
 import AutofitGrid from 'components/AutofitGrid';
+import ButtonCategory from "components/ButtonCategory";
 import NewsCard from "components/NewsCard";
 import Page from "components/Page";
 import { KategoryItems, NewsArticle } from "types";
 import { media } from 'utils/media';
-import ButtonCategory from "components/ButtonCategory";
 import { getSingleNews } from "utils/newsFetcher";
-import { InferGetStaticPropsType } from "next";
-import { useState } from 'react';
 
 
 const Kategory: KategoryItems = [

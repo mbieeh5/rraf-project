@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { KategoryItems } from "types";
 
 
 type KategoryItem = {

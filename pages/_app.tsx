@@ -11,8 +11,7 @@ import Footer from 'components/Footer';
 import { GlobalStyle } from 'components/GlobalStyles';
 import Navbar from 'components/Navbar';
 import NavigationDrawer from 'components/NavigationDrawer';
-import NewsletterModal from 'components/NewsletterModal';
-import { NewsletterModalContextProvider, useNewsletterModalContext } from 'contexts/newsletter-modal.context';
+import { NewsletterModalContextProvider } from 'contexts/newsletter-modal.context';
 import { NavItems } from 'types';
 
 const navItems: NavItems = [
@@ -35,7 +34,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         <ColorModeScript />
         <GlobalStyle />
       <Providers>
-        <Modals />
         <Navbar items={navItems} />
           <Component {...pageProps} />
         <Footer />
@@ -52,12 +50,5 @@ function Providers<T>({ children }: PropsWithChildren<T>) {
   );
 }
 
-function Modals() {
-  const { isModalOpened, setIsModalOpened } = useNewsletterModalContext();
-  if (!isModalOpened) {
-    return null;
-  }
-  return <NewsletterModal onClose={() => setIsModalOpened(false)} />;
-}
 
 export default MyApp;

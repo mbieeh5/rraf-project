@@ -1,10 +1,10 @@
 import { InferGetStaticPropsType } from 'next';
 import styled from 'styled-components';
 import AutofitGrid from 'components/AutofitGrid';
+import NewsCard from 'components/NewsCard';
 import Page from 'components/Page';
 import { media } from 'utils/media';
 import { getAllPosts } from 'utils/postsFetcher';
-import NewsCard from 'components/NewsCard';
 
 export default function BlogIndexPage({ posts }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
