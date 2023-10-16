@@ -1,4 +1,3 @@
-import NextImage from 'next/image';
 import NextLink from 'next/link';
 import styled from 'styled-components';
 import { media } from 'utils/media';
@@ -35,14 +34,14 @@ const ImageHolder = styled.img`
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top: -35px;
+  margin-top: auto;
   width: 60%;
   border-radius: 8px;
 `
 
 const ImageContainer = styled.div`
   position: relative;
-  height: 16rem;
+  height: 20rem;
   
   &:before {
     display: block;
@@ -67,7 +66,7 @@ const ImageContainer = styled.div`
 const ArticleCardWrapper = styled.a`
   display: flex;
   flex-direction: column;
-  height: 40rem;
+  height: 45rem;
   max-width: 35rem;
   overflow: hidden;
   text-decoration: none;

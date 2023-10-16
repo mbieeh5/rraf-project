@@ -44,7 +44,7 @@ const HeaderContainer = styled.div`
   align-items: center;
   justify-content: center;
   background: rgb(var(--secondary));
-  min-height: 40rem;
+  min-height: 20rem;
 `;
 
 const Title = styled(SectionTitle)`
@@ -65,6 +65,6 @@ const Description = styled.div`
 `;
 
 const ChildrenWrapper = styled.div`
-  margin-top: 10rem;
-  margin-bottom: 10rem;
+  margin-top: 2rem;
+  margin-bottom: 5rem;
 `;
