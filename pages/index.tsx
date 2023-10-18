@@ -11,6 +11,7 @@ import Partners from 'views/HomePage/Partners';
 import ScrollableBlogPosts from 'views/HomePage/ScrollableBlogPosts';
 
 export default function Homepage({ posts }: InferGetStaticPropsType<typeof getStaticProps>) {
+
   return (
     <>
       <Head>

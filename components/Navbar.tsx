@@ -1,8 +1,10 @@
+import { signOut } from 'firebase/auth';
 import dynamic from 'next/dynamic';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
+import { useLogin } from 'contexts/LoginContext';
 import { useNewsletterModalContext } from 'contexts/newsletter-modal.context';
 import { ScrollPositionEffectProps, useScrollPosition } from 'hooks/useScrollPosition';
 import { NavItems, SingleNavItem } from 'types';
@@ -12,6 +14,7 @@ import Container from './Container';
 import Drawer from './Drawer';
 import { HamburgerIcon } from './HamburgerIcon';
 import Logo from './Logo';
+import { auth } from '../firebase';
 
 const ColorSwitcher = dynamic(() => import('../components/ColorSwitcher'), { ssr: false });
 
@@ -64,6 +67,13 @@ export default function Navbar({ items }: NavbarProps) {
   const isNavbarHidden = scrollingDirection === 'down';
   const isTransparent = scrollingDirection === 'none';
 
+  const {isLogin, setLogin} = useLogin();
+
+  const handleLogout = () => {
+    signOut(auth);
+    setLogin(false);
+  }
+
   return (
     <NavbarContainer hidden={isNavbarHidden} transparent={isTransparent}>
         <NextLink href="/" passHref>
@@ -73,9 +83,10 @@ export default function Navbar({ items }: NavbarProps) {
         </NextLink>
       <Content>
         <NavItemList>
-          {items.map((singleItem) => (
-            <NavItem key={singleItem.href} {...singleItem} />
+          {items.map((singleItem, i) => (
+            <NavItem key={i} {...singleItem} />
           ))}
+          {isLogin ? <CustomButton onClick={handleLogout}>Logout</CustomButton> : ""}
         </NavItemList>
         <ColorSwitcherContainer>
           <ColorSwitcher />

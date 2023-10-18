@@ -6,7 +6,7 @@ import 'swiper/css/autoplay';
 import { AppProps } from 'next/dist/shared/lib/router/router';
 import Head from 'next/head';
 import { ColorModeScript } from 'nextjs-color-mode';
-import React, { PropsWithChildren, useEffect } from 'react';
+import React, { PropsWithChildren } from 'react';
 import Footer from 'components/Footer';
 import { GlobalStyle } from 'components/GlobalStyles';
 import Navbar from 'components/Navbar';
@@ -15,12 +15,14 @@ import { LoginProvider, useLogin } from 'contexts/LoginContext';
 import { NewsletterModalContextProvider } from 'contexts/newsletter-modal.context';
 import { NavItems } from 'types';
 
+
+
 const navItemsNotLogin: NavItems = [
   { title: 'Tools/Apps', href: '/tools' },
   { title: 'Games', href: '/games' },
   { title: 'Feedback', href: '/feedback' },
   { title: 'News', href: '/news' },
-  { title: 'Sign up', href: '/sign-up', outlined: true },
+  { title: 'Sign up', href: '/sign-up', outlined: false },
 ];
 
 const navItemsIsLogin: NavItems = [
@@ -30,7 +32,6 @@ const navItemsIsLogin: NavItems = [
   { title: 'Blog', href: '/blog' },
   { title: 'News', href: '/news' },
   { title: 'Profile', href: '/profile' },
-  { title: 'Logout', href: '/sign-up', outlined: true },
 ];
 
 
@@ -55,14 +56,8 @@ function MyApp({ Component, pageProps }: AppProps) {
 }
 
 function MyAppContents({Component, pageProps}:{Component: React.ComponentType; pageProps: any}) {
-const {isLogin, setLogin} = useLogin();
-const a:number = 1;
-const b:number = 2;
-useEffect(() => {
-if(a+b === 3){
-  setLogin(true)
-}
-},[])
+const {isLogin} = useLogin();
+
 
   return(
     <Providers isLogin={isLogin}>
