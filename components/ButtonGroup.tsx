@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { media } from 'utils/media';
 
 const ButtonGroup = styled.div`
+  margin-top: 3rem;
   display: flex;
   flex-wrap: wrap;
 

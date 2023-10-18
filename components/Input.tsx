@@ -4,10 +4,11 @@ const Input = styled.input`
   border: 1px solid rgb(var(--inputBackground));
   background: rgb(var(--inputBackground));
   border-radius: 0.6rem;
+  max-width: 15rem;
+  max-height: 2rem;
   font-size: 1.6rem;
   padding: 1.8rem;
   box-shadow: var(--shadow-md);
-  /* color: rgb(var(--textSecondary)); */
 
   &:focus {
     outline: none;
