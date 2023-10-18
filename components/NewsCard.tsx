@@ -15,14 +15,14 @@ export default function NewsCard({ title, thumbnail, pubDate, link, description 
     <NextLink href={link} passHref>
       <ArticleCardWrapper className="article-card-wrapper">
         <HoverEffectContainer>
-          <Content>
           <ImageContainer>
-            <ImageHolder src={thumbnail} alt={title} />
+            <ImageHolder src={thumbnail} />
           </ImageContainer>
-            <Title>{title}</Title>
+        <Content>
+          <Title>{title}</Title>
             <Descriptions>{pubDate}</Descriptions>
             <Descriptions>{description}</Descriptions>
-          </Content>
+        </Content>
         </HoverEffectContainer>
       </ArticleCardWrapper>
     </NextLink>
@@ -32,15 +32,15 @@ export default function NewsCard({ title, thumbnail, pubDate, link, description 
 const ImageHolder = styled.img`
   position: flex;
   display: block;
+  max-height: 25rem;
+  max-width: 25rem;
   margin-left: auto;
   margin-right: auto;
-  margin-top: auto;
-  width: 60%;
   border-radius: 8px;
 `
 
 const ImageContainer = styled.div`
-  position: relative;
+  position: flex;
   height: 20rem;
   
   &:before {
@@ -63,7 +63,7 @@ const ImageContainer = styled.div`
   }
 `;
 
-const ArticleCardWrapper = styled.a`
+const ArticleCardWrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: 45rem;
@@ -90,7 +90,8 @@ const HoverEffectContainer = styled.div`
 
 const Content = styled.div`
   padding: 0 2rem;
-
+  margin: 1rem;
+  margin-top: 12em
   & > * {
     margin-top: 1rem;
   }
@@ -98,7 +99,7 @@ const Content = styled.div`
 
 const Title = styled.h4`
   font-size: 1.8rem;
-
+  text-align: center;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;

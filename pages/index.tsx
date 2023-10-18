@@ -22,6 +22,8 @@ export default function Homepage({ posts }: InferGetStaticPropsType<typeof getSt
       </Head>
       <HomepageWrapper>
         <WhiteBackgroundContainer>
+      {/*
+        */}
           <Hero />
           <BasicSection imageUrl="/demo-illustration-2.svg" title="Simple Project." overTitle="Simple Project" reversed>
             <p>
@@ -40,7 +42,7 @@ export default function Homepage({ posts }: InferGetStaticPropsType<typeof getSt
           <Features />
           <ScrollableBlogPosts posts={posts} />
         </DarkerBackgroundContainer>
-      </HomepageWrapper>
+  </HomepageWrapper>
     </>
   );
 }
