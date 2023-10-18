@@ -29,12 +29,13 @@ export default function News({ news }: InferGetStaticPropsType<typeof getStaticP
   const [newsA, setNews] = useState<NewsArticle[]>(news);
   const [displayedNews, setDisplayedNews] = useState<NewsArticle[]>(news.slice(0, 5));
   const [showMore, setShowMore] = useState(true);
-  
+
   const pilihBeritaByKategory = async (category: string) => {
     const selectedNews = await getSingleNews(category);
     setNews(selectedNews);
     setDisplayedNews(selectedNews.slice(0, 5));
     setShowMore(true);
+
   }
 
   const loadMoreNews = () => {
@@ -57,10 +58,11 @@ export default function News({ news }: InferGetStaticPropsType<typeof getStaticP
     return `${hours}:${minutes} ${day}-${month}-${year}.`;
   
   }
+
   return (
     <Page
-      title="Bertia Terkini"
-      description="Cek Update Berita Terkini dari beberapa Platfrom"
+    title="Berita Terkini"
+    description="Cek Update Berita Terkini dari beberapa Platfrom"
     >
       <Wrapper>
         <ButtonCategory categories={Kategory} onCategorySelect={pilihBeritaByKategory} />
@@ -68,13 +70,13 @@ export default function News({ news }: InferGetStaticPropsType<typeof getStaticP
       <CustomAutofitGrid>
         {displayedNews.map((news, i) => (
           <NewsCard
-            key={i}
+            key={Math.random() * i}
             title={news.title}
             thumbnail={news.thumbnail}
             pubDate={formatDate(news.pubDate)}
             link={news.link}
             description={news.description}
-          />
+            />
         ))}
       </CustomAutofitGrid>
       <Wrapper2>

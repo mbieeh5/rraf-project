@@ -66,12 +66,12 @@ export default function Navbar({ items }: NavbarProps) {
 
   return (
     <NavbarContainer hidden={isNavbarHidden} transparent={isTransparent}>
-      <Content>
         <NextLink href="/" passHref>
-          <LogoWrapper>
-            <Logo />
-          </LogoWrapper>
+            <LogoWrapper>
+              <Logo />
+            </LogoWrapper>
         </NextLink>
+      <Content>
         <NavItemList>
           {items.map((singleItem) => (
             <NavItem key={singleItem.href} {...singleItem} />
@@ -128,15 +128,17 @@ const HamburgerMenuWrapper = styled.div`
   }
 `;
 
-const LogoWrapper = styled.a`
+const LogoWrapper = styled.div`
   display: flex;
-  margin-right: auto;
+  justify-content: flex-start;
+  padding: 0.5rem;
   text-decoration: none;
-
+  margin-top: auto;
   color: rgb(var(--logoColor));
 `;
 
-const NavItemWrapper = styled.li<Partial<SingleNavItem>>`
+
+const NavItemWrapper = styled.div<Partial<SingleNavItem>>`
   background-color: ${(p) => (p.outlined ? 'rgb(var(--primary))' : 'transparent')};
   border-radius: 0.5rem;
   font-size: 1.3rem;

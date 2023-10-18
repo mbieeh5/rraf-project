@@ -43,8 +43,10 @@ function PilihanKategory({ category, isSelected, onSelect }: PilihanKategoryProp
   return (
     <Button
       onClick={() => onSelect(category)}
-      style={{ backgroundColor: isSelected ? "white" : "inherit", color: isSelected ? "black" : "white" }}
-    >
+      style={{ 
+      backgroundColor: isSelected ? "white" : "black", 
+      color: isSelected ? "black" : "white" 
+    }}>
       {category.toLocaleUpperCase()}
     </Button>
   );
@@ -54,7 +56,6 @@ const Button = styled.button`
   min-width: 8rem;
   background: transparent;
   white-space: nowrap;
-  color: white;
   margin: 7px;
   padding: 7px;
   size-text: 10px;

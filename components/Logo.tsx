@@ -6,8 +6,6 @@ export default function Logo({ ...rest }) {
       className="ccustom"
       fill="currentColor"
       ></path>{" "}
-
-
     </svg>
   );
 }
