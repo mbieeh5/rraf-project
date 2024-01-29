@@ -34,25 +34,15 @@ const FEATURES = [
 
 export default function Features() {
   return (
-    
     <Container>
       <CustomAutofitGrid>
         {FEATURES.map((singleFeature, idx) => (
-        <AnimatedElement key={singleFeature.title}>
-          <BasicCard  {...singleFeature} />
-        </AnimatedElement>
-          ))}
+          <BasicCard key={singleFeature.title} {...singleFeature} />
+        ))}
       </CustomAutofitGrid>
     </Container>
   );
 }
-const AnimatedElement = styled.div`
-  transition: transform 0.3s ease;
-
-  &:hover {
-    transform: scale(0.9);
-  }
-`;
 
 const CustomAutofitGrid = styled(AutofitGrid)`
   --autofit-grid-item-size: 40rem;

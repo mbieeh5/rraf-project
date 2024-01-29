@@ -11,7 +11,10 @@ export default function Tools() {
             <ToolsWrapper>
                 <AutofitGrid>
                     <BasicCardNoImg link="/tools/sum" title="Penambahan & Penjumlahan" description="Kamu dapat menambahkan items dan dapat menjumlahakan totalnya di sini, cocok buat kalian yang mau belanja nih" />
-                    <BasicCardNoImg link="/tools/pokemon-wiki" title="POKEMON WIKI" description="Wikipedianya Pokemon" />
+                    <BasicCardNoImg link="/tools/sum" title="Penambahan & Penjumlahan" description="Kamu dapat menambahkan items dan dapat menjumlahakan totalnya di sini, cocok buat kalian yang mau belanja nih" />
+                    <BasicCardNoImg link="/tools/sum" title="Penambahan & Penjumlahan" description="Kamu dapat menambahkan items dan dapat menjumlahakan totalnya di sini, cocok buat kalian yang mau belanja nih" />
+                    <BasicCardNoImg link="/tools/sum" title="Penambahan & Penjumlahan" description="Kamu dapat menambahkan items dan dapat menjumlahakan totalnya di sini, cocok buat kalian yang mau belanja nih" />
+                    <BasicCardNoImg link="/tools/sum" title="Penambahan & Penjumlahan" description="Kamu dapat menambahkan items dan dapat menjumlahakan totalnya di sini, cocok buat kalian yang mau belanja nih" />
               </AutofitGrid>
             </ToolsWrapper>
         </Page>
