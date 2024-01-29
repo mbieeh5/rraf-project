@@ -52,7 +52,7 @@ export default function PokemonWiki() {
       <H1>POKEMON WIKI</H1>
       <Wrapper>
         {dataPokemon.map((data : any, i) => {
-          const stats = dataPokemonStatic[i] || [];
+          const stats = dataPokemonStatic || [];
           return (
             <div key={i}>
               <p>Name : {data.name}</p>
