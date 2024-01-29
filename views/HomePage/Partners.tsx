@@ -23,11 +23,10 @@ export default function Partners() {
         spaceBetween={30}
         loop={true}
         autoplay={{ delay: 0, disableOnInteraction: false, pauseOnMouseEnter: false, waitForTransition: false, stopOnLastSlide: false }}
-        speed={3500}
+        speed={2500}
         breakpoints={{
           320: { slidesPerView: 2 },
           768: { slidesPerView: 4 },
-          1025: { slidesPerView: 6 },
         }}
         className="swiper-wrapper"
       >

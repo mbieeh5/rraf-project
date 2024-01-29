@@ -11,12 +11,6 @@ type FooterItems = SingleFooterList[];
 
 const footerItems: FooterItems = [
   {
-    title: '',
-    items: [
-      
-    ],
-  },
-  {
     title: 'Feature',
     items: [
       { title: 'Features', href: '/features' },
@@ -35,13 +29,7 @@ const footerItems: FooterItems = [
       { title: 'Privacy Policy', href: '/privacy-policy' },
       { title: 'Cookies Policy', href: '/cookies-policy' },
     ],
-  },
-  {
-    title: '',
-    items: [
-      
-    ],
-  },
+  }
 ];
 
 export default function Footer() {
