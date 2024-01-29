@@ -1,5 +1,5 @@
 import html2canvas from "html2canvas";
-import React, {useEffect, useState} from "react"
+import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 import ButtonGroup from "components/ButtonGroup";
 import Page from "components/Page"
@@ -138,6 +138,7 @@ export default function Sum() {
               <th>Jumlah Barang</th>
               <th>Harga</th>
               <th>Total</th>
+              <th>Hapus Item</th>
             </tr>
           </thead>
           <tbody>
@@ -191,6 +192,15 @@ export default function Sum() {
           </tbody>
         </Table>
       </SumSection>
+        {/*<WrapperTotal>
+          <TotalLabel>Total Harga:</TotalLabel>
+          <TotalValue>{calculateTotal().totalPrice.toLocaleString('id-ID', {style: 'currency', currency: "IDR"})}</TotalValue>
+        </WrapperTotal>
+        <br />
+        <WrapperTotal>
+          <TotalLabel>Total Barang:</TotalLabel>
+          <TotalValue>{calculateTotal().totalItems}</TotalValue>
+                  </WrapperTotal>*/}
         <ButtonGroup>
           <AddButton onClick={addEntry}>Tambah Baris</AddButton>
           <ClearButton onClick={clearData}>Hapus Semua Baris</ClearButton>
@@ -261,7 +271,6 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-
 const AddButton = styled.button`
   margin: 1rem 0;
   font-size: 2rem;
@@ -294,4 +303,3 @@ border: none;
 border-radius: 9.5px;
 cursor: pointer;
 `;
-

@@ -20,7 +20,7 @@ import { NavItems } from 'types';
 const navItemsNotLogin: NavItems = [
   { title: 'Tools/Apps', href: '/tools' },
   { title: 'Games', href: '/games' },
-  { title: 'Feedback', href: '/feedback' },
+  { title: 'Shopping', href: '/shopping' },
   { title: 'News', href: '/news' },
   { title: 'Sign up', href: '/sign-up', outlined: false },
 ];
@@ -28,7 +28,7 @@ const navItemsNotLogin: NavItems = [
 const navItemsIsLogin: NavItems = [
   { title: 'Tools/Apps', href: '/tools' },
   { title: 'Games', href: '/games' },
-  { title: 'Feedback', href: '/feedback' },
+  { title: 'Shopping', href: '/shopping' },
   { title: 'Blog', href: '/blog' },
   { title: 'News', href: '/news' },
   { title: 'Profile', href: '/profile' },
@@ -44,7 +44,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="icon" type="image/png" href="/rraf-logo.png" />
       </Head>
       <LoginProvider>
         <ColorModeScript />
