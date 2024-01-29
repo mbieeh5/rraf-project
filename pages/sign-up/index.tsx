@@ -1,15 +1,15 @@
-import { FacebookAuthProvider, GoogleAuthProvider, GithubAuthProvider, signInWithPopup, TwitterAuthProvider,  } from "firebase/auth";
+import { FacebookAuthProvider, GithubAuthProvider, GoogleAuthProvider, signInWithPopup, TwitterAuthProvider,  } from "firebase/auth";
 import React, { useState } from "react";
 import styled from "styled-components";
-import Container from "components/Container";
 import Button from "components/Button";
+import Container from "components/Container";
 import Facebook from "components/Facebook";
 import Github from "components/Github";
 import Google from "components/Google";
 import Page from "components/Page";
 import Twitter from "components/Twitter";
-import { auth } from "../../firebase";
 import { useLogin } from "contexts/LoginContext";
+import { auth } from "../../firebase";
 
 export default function SignUp() {
   const [email, setEmail] = useState("");
