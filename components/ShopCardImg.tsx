@@ -1,12 +1,12 @@
+import { child, get, getDatabase, ref, update } from 'firebase/database';
 import NextLink from 'next/link';
 import { useState } from 'react';
 import styled from 'styled-components';
 import { media } from 'utils/media';
 import Button from './Button';
 import ButtonGroup from './ButtonGroup';
-import { child, getDatabase, get, ref, update } from 'firebase/database';
 
-export interface ShopCard {
+export interface ShopCards {
   title: string;
   link: string;
   description: string;
@@ -16,7 +16,7 @@ export interface ShopCard {
   stock: number;
 }
 
-export default function ShopCard({ title, link, description, img, price, stock}: ShopCard) {
+export default function ShopCard({ title, link, description, img, price, stock}: ShopCards) {
   const [isPopupVisible, setPopupVisible] = useState(false);
   const [qty, setQty] = useState(0);
   const [noHp, setNoHp] = useState('');

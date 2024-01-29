@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import Button from "components/Button";
-import styled from "styled-components";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
 import AutofitGrid from "components/AutofitGrid";
+import Button from "components/Button";
 
 interface PokemonStat {
     base_stat : number;

@@ -1,8 +1,8 @@
+import html2canvas from "html2canvas";
+import React, { useEffect, useState } from "react"
+import styled from "styled-components"
 import ButtonGroup from "components/ButtonGroup";
 import Page from "components/Page"
-import React, { useState, useEffect } from "react"
-import styled from "styled-components"
-import html2canvas from "html2canvas";
 
 
 export default function Sum() {
@@ -271,11 +271,6 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-const WrapperTotal = styled.div`
-display: flex;
-  padding: 2rem;
-`;
-
 const AddButton = styled.button`
   margin: 1rem 0;
   font-size: 2rem;
@@ -307,16 +302,4 @@ color: white;
 border: none;
 border-radius: 9.5px;
 cursor: pointer;
-`;
-
-
-const TotalLabel = styled.div`
-margin: auto;
-font-size: 23px;
-
-`;
-
-const TotalValue = styled.div`
-margin: auto;
-font-size: 25px;
 `;
