@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -34,7 +34,7 @@ export default function ScrollableBlogPosts({ posts }: ScrollableBlogPostsProps)
 
       <SwiperContainer ref={ref}>
         {hasMounted && (
-          <Swiper modules={[A11y]} slidesPerView={noOfItems} spaceBetween={25} loop>
+          <Swiper modules={[A11y]} slidesPerView={noOfItems} spaceBetween={10} loop>
             {posts.map((singlePost, i) => (
               <SwiperSlide key={i}>
                 <NewsCard

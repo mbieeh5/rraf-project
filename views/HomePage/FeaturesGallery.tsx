@@ -39,21 +39,19 @@ export default function FeaturesGallery() {
     const isActive = singleTab.title === currentTab.title;
 
     return (
-      <AnimatedElement>
-        <Tab isActive={isActive} key={idx} onClick={() => handleTabClick(idx)}>
-          <TabTitleContainer>
-            <CircleContainer>
-              <ThreeLayersCircle baseColor={isActive ? 'transparent' : singleTab.baseColor} secondColor={singleTab.secondColor} />
-            </CircleContainer>
-            <h4>{singleTab.title}</h4>
-          </TabTitleContainer>
-          <Collapse isOpen={isActive} duration={300}>
-            <TabContent>
-              <div dangerouslySetInnerHTML={{ __html: singleTab.description }}></div>
-            </TabContent>
-          </Collapse>
-        </Tab>
-      </AnimatedElement>
+      <Tab isActive={isActive} key={idx} onClick={() => handleTabClick(idx)}>
+        <TabTitleContainer>
+          <CircleContainer>
+            <ThreeLayersCircle baseColor={isActive ? 'transparent' : singleTab.baseColor} secondColor={singleTab.secondColor} />
+          </CircleContainer>
+          <h4>{singleTab.title}</h4>
+        </TabTitleContainer>
+        <Collapse isOpen={isActive} duration={300}>
+          <TabContent>
+            <div dangerouslySetInnerHTML={{ __html: singleTab.description }}></div>
+          </TabContent>
+        </Collapse>
+      </Tab>
     );
   });
 
@@ -73,14 +71,6 @@ export default function FeaturesGallery() {
     </FeaturesGalleryWrapper>
   );
 }
-
-const AnimatedElement = styled.div`
-  transition: transform 0.3s ease;
-
-  &:hover {
-    transform: scale(1.1);
-  }
-`;
 
 const FeaturesGalleryWrapper = styled(Container)`
   display: flex;
