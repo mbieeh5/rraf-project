@@ -77,7 +77,7 @@ const ArticleCardWrapper = styled.div`
 `;
 
 const HoverEffectContainer = styled.div`
-  transition: transform 0.2s;
+  transition: transform 0.3s;
   backface-visibility: hidden;
   will-change: transform;
 

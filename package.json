@@ -16,7 +16,6 @@
     "css-in-js-media": "^2.0.1",
     "date-fns": "^2.29.3",
     "firebase": "^10.5.0",
-    "firebaseui": "^6.1.0",
     "gray-matter": "^4.0.3",
     "html2canvas": "^1.4.1",
     "js-cookie": "^3.0.5",

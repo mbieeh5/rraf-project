@@ -6,12 +6,13 @@ import OverTitle from './OverTitle';
 import RichText from './RichText';
 
 export interface BasicSectionProps {
+  imageUrl: string;
   title: string;
   overTitle: string;
   reversed?: boolean;
 }
 
-export default function BasicSection({ title, overTitle, reversed, children }: PropsWithChildren<BasicSectionProps>) {
+export default function BasicSection({ imageUrl, title, overTitle, reversed, children }: PropsWithChildren<BasicSectionProps>) {
   return (
     <BasicSectionWrapper reversed={reversed}>
       {/*<ImageContainer>
