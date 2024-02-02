@@ -62,7 +62,7 @@ export default function ShopCard({ title, link, description, img, price, stock}:
                 }else{
                   update(childRef,{point: point - totalHarga});
                   update(childRef2,{[lowerCaseTitle]: Allinvent + qty});
-                  update(barangRef,{[lowerCaseTitle]: allIn - qty});
+                  update(barangRef,{stock : allIn - qty});
                   success = 'true'
                 }
               }else{
