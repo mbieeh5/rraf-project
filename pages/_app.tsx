@@ -5,6 +5,7 @@ import 'swiper/css/autoplay';
 
 import { AppProps } from 'next/dist/shared/lib/router/router';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import { ColorModeScript } from 'nextjs-color-mode';
 import React, { PropsWithChildren } from 'react';
 import Footer from 'components/Footer';
@@ -55,15 +56,23 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-function MyAppContents({Component, pageProps}:{Component: React.ComponentType; pageProps: any}) {
+function MyAppContents({Component, pageProps}:{Component: React.ComponentType; pageProps: any;}) {
 const {isLogin} = useLogin();
-
+const isAdmin = useRouter().pathname.startsWith('/adm');
 
   return(
     <Providers isLogin={isLogin}>
-      <Navbar items={ isLogin? navItemsIsLogin : navItemsNotLogin}/>
-      <Component {...pageProps}/>
-      <Footer />
+    {isAdmin ? (
+      <>
+          <Component {...pageProps} />
+        </>
+      ) : ( 
+      <>
+        <Navbar items={ isLogin? navItemsIsLogin : navItemsNotLogin}/>
+          <Component {...pageProps}/>
+        <Footer />
+      </>
+     )}
     </Providers>
   )
 }
