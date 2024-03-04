@@ -1,7 +1,6 @@
 import html2canvas from "html2canvas";
 import React, { useEffect, useState } from "react"
 import styled from "styled-components"
-import ButtonGroup from "components/ButtonGroup";
 import Page from "components/Page"
 
 
@@ -117,7 +116,6 @@ export default function Sum() {
           alert('Context is null. gagal mengunduh')
         )
   
-        // Mengunduh gambar yang berisi total item dan total harga
         const mergedImage = mergedCanvas.toDataURL('image/png');
         link.href = mergedImage;
         link.download = `table-${randomString(8)}.png`;
@@ -147,6 +145,7 @@ export default function Sum() {
                 <td>
                   <Input
                     type="text"
+                    placeholder="Masukan Nama Barang"
                     value={dataA[index]}
                     onChange={(e) => {
                       const newDataA = [...dataA];
@@ -185,22 +184,13 @@ export default function Sum() {
             ))}
               <tr>
     <td>Total Item</td>
-        <td>{calculateTotal().totalItems}</td>
+        <td>{calculateTotal().totalItems.toLocaleString('id-ID')}</td>
         <td>Total Harga</td>
         <td>{calculateTotal().totalPrice.toLocaleString('id-ID', {style: 'currency', currency: "IDR"})}</td>
               </tr>
           </tbody>
         </Table>
       </SumSection>
-        {/*<WrapperTotal>
-          <TotalLabel>Total Harga:</TotalLabel>
-          <TotalValue>{calculateTotal().totalPrice.toLocaleString('id-ID', {style: 'currency', currency: "IDR"})}</TotalValue>
-        </WrapperTotal>
-        <br />
-        <WrapperTotal>
-          <TotalLabel>Total Barang:</TotalLabel>
-          <TotalValue>{calculateTotal().totalItems}</TotalValue>
-                  </WrapperTotal>*/}
         <ButtonGroup>
           <AddButton onClick={addEntry}>Tambah Baris</AddButton>
           <ClearButton onClick={clearData}>Hapus Semua Baris</ClearButton>
@@ -213,12 +203,16 @@ export default function Sum() {
 
 const Input = styled.input`
 border: 1px solid rgb(var(--inputBackground));
-max-width: 16rem;
+background: rgb(var(--inputBackground));
+color: rgb(var(--text));
+max-width: 26rem;
+text-align: center;
+border-radius: 12px;
 `
 
 const RemoveButton = styled.button`
-background-color: red;
-color:white;
+background-color: rgb(var(--errorColor));
+color: white;
 border: none;
 border-radius: 8px;
 padding: 5px;
@@ -269,7 +263,18 @@ const Table = styled.table`
 const Wrapper = styled.div`
   margin: 0.5rem;
   align-items: center;
+  padding-top: 15rem;
+  padding-bottom: 15rem;
 `;
+
+const ButtonGroup = styled.div`
+padding-top: 5rem;
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-item: center;
+gap: 12px;
+`
 
 const AddButton = styled.button`
   margin: 1rem 0;
@@ -286,7 +291,7 @@ const AddButton = styled.button`
   margin: 1rem 0;
   font-size: 2rem;
   padding: 0.5rem 1rem;
-  background-color: #0074D9;
+  background-color: rgb(var(--errorColor));
   color: white;
   border: none;
   cursor: pointer;
@@ -296,7 +301,7 @@ const AddButton = styled.button`
   const DownloadButton = styled.button`
 margin: 1rem 0;
 padding: 0.5rem 1rem;
-  font-size: 2rem;
+font-size: 2rem;
 background-color: #0074D9;
 color: white;
 border: none;

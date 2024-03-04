@@ -13,9 +13,6 @@ export default function BasicCardNoImg({ title, link, description }: basicCardNo
     <NextLink href={link} passHref>
       <ArticleCardWrapper className="article-card-wrapper">
         <HoverEffectContainer>
-          <ImageContainer>
-            <ImageHolder src={' '} />
-          </ImageContainer>
         <Content>
           <Title>{title}</Title>
             <Descriptions>{description}</Descriptions>
@@ -26,51 +23,20 @@ export default function BasicCardNoImg({ title, link, description }: basicCardNo
   );
 }
 
-const ImageHolder = styled.img`
-  position: flex;
-  display: block;
-  max-height: 25rem;
-  max-width: 25rem;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 8px;
-`
-
-const ImageContainer = styled.div`
-  position: flex;
-  height: 20rem;
-  
-  &:before {
-    display: block;
-    content: '';
-    width: 100%;
-    padding: 5%;
-  }
-
-  & > div {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  }
-
-  ${media('<=desktop')} {
-    width: 100%;
-  }
-`;
 
 const ArticleCardWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  height: 45rem;
+  padding: 3rem;
+  height: 25rem;
   max-width: 35rem;
   overflow: hidden;
   text-decoration: none;
-  border-radius: 0.6rem;
+  border-radius: 1rem;
   background: rgb(var(--cardBackground));
   cursor: pointer;
   color: rgb(var(--text));
+  box-shadow: 0 0 10px rgba(10, 10, 10, 0.1);
 `;
 
 const HoverEffectContainer = styled.div`

@@ -40,12 +40,13 @@ const ImageHolder = styled.img`
 `
 
 const ImageContainer = styled.div`
-  position: flex;
+  position: relative;
   height: 20rem;
+  padding: 1rem;
+  padding-top: 1.5rem;
   
   &:before {
     display: block;
-    content: '';
     width: 100%;
     padding: 5%;
   }
@@ -91,7 +92,6 @@ const HoverEffectContainer = styled.div`
 const Content = styled.div`
   padding: 0 2rem;
   margin: 1rem;
-  margin-top: 12em
   & > * {
     margin-top: 1rem;
   }
@@ -109,7 +109,6 @@ const Title = styled.h4`
 
 const Descriptions = styled.p`
   font-size: 1.6rem;
-
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;

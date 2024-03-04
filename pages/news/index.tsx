@@ -129,6 +129,7 @@ const ShowMoreButton = styled.button`
   margin: 2rem;
   padding: 1rem 1.5rem;
   background-color: #0074D9;
+  border-radius: 1rem;
   color: white;
   border: none;
   cursor: pointer;
