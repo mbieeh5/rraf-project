@@ -1,11 +1,12 @@
-import { child, get, getDatabase,ref, update } from 'firebase/database';
+//import { child, get, getDatabase,ref, update } from 'firebase/database';
 
 
 export default function handler(req, res) {
     const dbd = ref(getDatabase());
     if(req.method === 'POST'){
         const {data} = req.body;
-        const noHPDBs = data.noHPDB;
+        res.status(200).json({message: data.noHPDB});
+        /*const noHPDBs = data.noHPDB;
         const DBToUp = ref(getDatabase(), `dataPengguna/pengguna/${noHPDBs}`);
         get(child(dbd, `dataPengguna/pengguna/${noHPDBs}`))
           .then((ss) =>{
@@ -33,7 +34,7 @@ export default function handler(req, res) {
         })
         .catch((err) => {
               res.status(404).json({message: 'Gagal Absen Nomor Bukan Pengguna Bot'});
-          });
+          });*/
           
     }else{
         res.status(405).json({message: 'Metode tidak diizinkan'});
