@@ -1,4 +1,4 @@
-import { child, get, getDatabase,ref, update } from 'firebase/database';
+import { child, get, getDatabase,ref } from 'firebase/database';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Button from '../../../../components/Button';
@@ -9,15 +9,14 @@ export default function AbsenCard() {
   const [isPopupVisible, setPopupVisible] = useState(false);
   const [noHp, setNoHp] = useState('');
   const [statusAbsen, setStatusAbsen] = useState<boolean>();
-  const [title, setTitle] = useState("Absen Bro"); // Perbaikan typo di sini
+  const [title, setTitle] = useState("Absen Bro"); 
   const [remindPoint, setRemindPoint] = useState(0);
-  const dbd = ref(getDatabase());
   const noHPDB = `${noHp}_c_us`;
   
   const openPopup = () => setPopupVisible(true);
   const closePopup = () => setPopupVisible(false);
   
-  function HandlerNoHP(noHP : string){
+  async function HandlerNoHP(noHP : string){
     const RegexNo0 = /^0/;
     const noHP62 = noHP.replace(RegexNo0, '62');
     setNoHp(noHP62);
@@ -44,42 +43,24 @@ export default function AbsenCard() {
     .catch((err) => {
       setTitle("Masukan Nomor Dengan Benar");
     });
+
   }, [noHp, isPopupVisible]);
   
-  const absen = () => {
-    const DBToUp = ref(getDatabase(), `dataPengguna/pengguna/${noHPDB}`);
-
-    get(child(dbd, `dataPengguna/pengguna/${noHPDB}`))
-      .then((ss) =>{
-        const point = ss.val().point;
-        const absenweb = ss.val().absenWeb;
-        if(point){
-          if(absenweb){
-            const pointToUp = point + 5000;
-            update(DBToUp,{point: pointToUp, absenWeb: false});
-            setPopupVisible(false);
-            alert("Absen Berhasil Bro")
-            setTimeout(() => {
-              update(DBToUp,{absenWeb: true});
-            }, 12*60*60*1000);
-          }else{
-            setTitle("Pencet Lagi bro");
-            if(absenweb === false){
-              setTitle('udah absen bro');
-              setTimeout(() => {
-                setPopupVisible(false);
-              }, 2000)
-            }else{
-              update(DBToUp,{absenWeb: true});
-            }
-          }
-        }else{
-          setTitle("Gagal Absen Nomor Bukan Pengguna Bot")
-        }
-      })
-      .catch((err) => {
-        setTitle('Masukan Nomor Yang terdaftar di DB');
-      });
+  const absen = async () => {
+    const dataToSend = {noHPDB}
+      try {
+        const response = await fetch('/api/reset-absen', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({data: dataToSend})
+        });
+        const responseData = await response.json();
+        setTitle(responseData.message);
+      } catch(error){
+        console.error(error);
+      }
   };
 
   return (
@@ -119,7 +100,7 @@ const Input = styled.input`
   background: rgb(var(--inputBackground));
   color: rgb(var(--text))
   border-radius: 0.6rem;
-  max-width: 18rem;
+  max-width: 21.5rem;
   max-height: 3rem;
   font-size: 1.6rem;
   padding: 1.8rem;
