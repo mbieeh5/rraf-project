@@ -5,10 +5,9 @@ export default function handler(req, res) {
     const dbd = ref(getDatabase());
     if(req.method === 'POST'){
         const {data} = req.body;
-        console.log('Data Di Terima',data.noHPDB);
-
-        const DBToUp = ref(getDatabase(), `dataPengguna/pengguna/${data.noHPDB}`);
-        get(child(dbd, `dataPengguna/pengguna/${data.noHPDB}`))
+        const noHPDBs = data.noHPDB;
+        const DBToUp = ref(getDatabase(), `dataPengguna/pengguna/${noHPDBs}`);
+        get(child(dbd, `dataPengguna/pengguna/${noHPDBs}`))
           .then((ss) =>{
             const point = ss.val().point;
             const absenweb = ss.val().absenWeb;
