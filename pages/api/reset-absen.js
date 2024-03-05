@@ -2,7 +2,7 @@
 
 
 export default function handler(req, res) {
-    const dbd = ref(getDatabase());
+    //const dbd = ref(getDatabase());
     if(req.method === 'POST'){
         const {data} = req.body;
         res.status(200).json({message: data.noHPDB});
