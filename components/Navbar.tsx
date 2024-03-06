@@ -1,4 +1,5 @@
 import { signOut } from 'firebase/auth';
+import Cookies from 'js-cookie';
 import dynamic from 'next/dynamic';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
@@ -72,6 +73,7 @@ export default function Navbar({ items }: NavbarProps) {
   const handleLogout = () => {
     signOut(auth);
     setLogin(false);
+    Cookies.remove('CRD');
   }
 
   return (

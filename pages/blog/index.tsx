@@ -1,22 +1,28 @@
 import { InferGetStaticPropsType } from 'next';
-import { useState } from 'react';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import AutofitGrid from 'components/AutofitGrid';
 import NewsCard from 'components/NewsCard';
 import Page from 'components/Page';
+import { useLogin } from 'contexts/LoginContext';
 import { media } from 'utils/media';
 import { getAllPosts } from 'utils/postsFetcher';
 
 export default function BlogIndexPage({ posts }: InferGetStaticPropsType<typeof getStaticProps>) {
 
   const [isLogin, setIsLogin] = useState(false);
+  const isLogins = useLogin().isLogin;
+  const router = useRouter();
+  
+  useEffect(() => {
+      if(isLogins){
+          setIsLogin(true)
+      }else{
+          router.push('/');
+      }
+},[isLogins, router]);
 
-  function Login():void {
-    setTimeout(() =>{
-      return setIsLogin(true);
-    }, 5000);
-  }
-Login();
 
   return (
     <>
@@ -39,10 +45,19 @@ Login();
       </CustomAutofitGrid>
     </Page>
         : 
-        " You Not Login Yet To see this blog"}
+        <Title>
+            YOU MUST LOGIN FIRST
+        </Title>
+        }
     </>
   );
 }
+
+const Title = styled.h1`
+text-align: center;
+font-size: 5rem;
+margin: 15rem;
+`;
 
 const CustomAutofitGrid = styled(AutofitGrid)`
   --autofit-grid-item-size: 40rem;
@@ -67,3 +82,4 @@ export async function getStaticProps() {
     },
   };
 }
+

@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useState } from 'react';
+import Cookies from 'js-cookie';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 
 interface LoginContextType {
     isLogin: boolean;
@@ -9,7 +10,14 @@ const LoginContext = createContext<LoginContextType | undefined>(undefined);
 
 export const LoginProvider: React.FC = ({ children }) => {
     const [isLogin, setLogin] = useState(false);
-
+    const CRD = Cookies.get('CRD');
+    useEffect(() => {
+        if(CRD){
+            setLogin(true);
+        }else{
+            setLogin(false);
+        }
+    },[])
     return(
         <LoginContext.Provider value={{isLogin, setLogin}}>
             {children}

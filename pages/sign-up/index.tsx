@@ -1,4 +1,5 @@
 import { FacebookAuthProvider, GithubAuthProvider, GoogleAuthProvider,  signInWithPopup, TwitterAuthProvider,  } from "firebase/auth";
+import Cookies from "js-cookie";
 import React, { useState } from "react";
 import styled from "styled-components";
 import Button from "components/Button";
@@ -91,9 +92,11 @@ export default function SignUp() {
 
   const signInWithGoogle = () => {
     signInWithPopup(auth, providerGoogle)
-      .then((res) => {
-        const user  = res.user;
-        setLogin(user.emailVerified);
+      .then((res:any) => {
+        const user  = res.user.emailVerified;
+        const token = res.user.accessToken;
+        Cookies.set('CRD', token);
+        setLogin(user);
       })
       .catch((error) => {
         console.log(error);
