@@ -33,7 +33,7 @@ export default function handler(req, res) {
             }
         })
         .catch((err) => {
-              res.status(404).json({message: 'Gagal Absen Nomor Bukan Pengguna Bot'});
+              res.status(404).json({message: 'Gagal Absen Nomor Bukan Pengguna Bot1'});
           });
           
     }else{
