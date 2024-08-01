@@ -1,8 +1,7 @@
-import html2canvas from "html2canvas";
-import React, { useEffect, useState } from "react"
+import axios from "axios";
+import React, { useEffect } from "react"
 import styled from "styled-components"
 import Page from "components/Page"
-import axios from "axios";
 
 
 export default function Sum() {
