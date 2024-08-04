@@ -27,11 +27,11 @@ export default function KartuUcapan() {
       const love = document.createElement('div');
       love.className = 'love';
       love.style.left = `${Math.random() * 100}vw`;
-      love.style.animationDuration = `${Math.random() * 5 + 3}s`; // Durasi acak antara 5s hingga 10s
+      love.style.animationDuration = `${Math.random() * 5 + 3}s`;
       document.querySelector('.love-container')?.appendChild(love);
       setTimeout(() => {
         love.remove();
-      }, 10000); // Hapus elemen setelah animasi selesai
+      }, 10000);
     };
 
     const interval = setInterval(createLove, 500);
@@ -57,7 +57,7 @@ export default function KartuUcapan() {
             <h1>SELAMAT MENEMPUH HIDUP BARU RIDWAN & NINIS</h1>
             <p>
               “Saya berharap Ada semua cinta, semua perhatian, semua kebahagiaan, dan ikatan yang akan
-              bertahan seumur hidup. Selamat atas pernikahanmu. Semoga hidupmu dipenuhi dengan cinta, 
+              bertahan seumur hidup. selamat atas pernikahanmu. Semoga hidupmu dipenuhi dengan cinta, 
               sukacita, kedamaian, rezeki yang melimpah, dan kebahagiaan. Selamat menempuh hidup baru!”
             </p>
             <Button onClick={launchConfetti}>🥳</Button>
